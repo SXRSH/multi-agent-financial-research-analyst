@@ -1,0 +1,40 @@
+
+
+services:
+
+  postgres:
+    image: postgres:16
+    container_name: financial-postgres
+    restart: unless-stopped
+
+    environment:
+      POSTGRES_DB: financial_research
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+
+    ports:
+      - "5432:5432"
+
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+    networks:
+      - financial-network
+
+  redis:
+    image: redis:7-alpine
+    container_name: financial-redis
+    restart: unless-stopped
+
+    ports:
+      - "6379:6379"
+
+    networks:
+      - financial-network
+
+volumes:
+  postgres_data:
+
+networks:
+  financial-network:
+    driver: bridge
