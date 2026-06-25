@@ -1,0 +1,56 @@
+[build-system]
+requires = ["setuptools>=69", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "multi-agent-financial-research-analyst"
+version = "0.1.0"
+description = "Enterprise-grade Multi-Agent Financial Research Platform using Google ADK and Gemini"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+
+authors = [
+    { name = "TCS Xcelerate Team" }
+]
+
+keywords = [
+    "Generative AI",
+    "Google ADK",
+    "Gemini",
+    "Multi-Agent",
+    "Finance",
+    "FastAPI",
+    "React"
+]
+
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "google-generativeai>=0.8.0",
+    "python-dotenv>=1.0.1",
+    "requests>=2.32.0",
+    "httpx>=0.27.0",
+    "yfinance>=0.2.54",
+    "beautifulsoup4>=4.12.3",
+    "lxml>=5.3.0",
+    "pydantic>=2.9.0",
+    "sqlalchemy>=2.0.36",
+    "psycopg2-binary>=2.9.10",
+    "redis>=5.2.0"
+]
+
+[tool.black]
+line-length = 88
+target-version = ["py312"]
+
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+
+[tool.setuptools]
+include-package-data = true
